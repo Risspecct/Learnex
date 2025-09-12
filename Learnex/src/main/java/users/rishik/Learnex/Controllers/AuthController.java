@@ -1,0 +1,63 @@
+package users.rishik.Learnex.Controllers;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import users.rishik.Learnex.Dtos.LoginDto;
+import users.rishik.Learnex.Services.UserService;
+import users.rishik.Learnex.Util.UserDto;
+
+@Slf4j
+@RestController
+public class AuthController {
+    private final UserService userService;
+
+    AuthController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @Operation(summary = "Register a new user", description = "Register a new user with email, username, password, and role.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "201", description = "User registered successfully"),
+            @ApiResponse(responseCode = "400", description = "Invalid input or duplicate email"),
+            @ApiResponse(responseCode = "500", description = "Server error during registration")
+    })
+    @PostMapping("/register")
+    public ResponseEntity<?> addUser(@RequestBody @Valid UserDto dto){
+        log.info("Register attempt for email {}", dto.getEmail());
+        return new ResponseEntity<>(this.userService.addUser(dto), HttpStatus.CREATED);
+    }
+
+    @Operation(summary = "User login", description = "Authenticate a user and return a JWT token.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Login successful, JWT returned"),
+            @ApiResponse(responseCode = "400", description = "Invalid input format"),
+            @ApiResponse(responseCode = "401", description = "Invalid credentials"),
+            @ApiResponse(responseCode = "500", description = "Server error during login")
+    })
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody @Valid LoginDto loginDto){
+        log.info("Login attempt for email: {}", loginDto.getEmail());
+        return ResponseEntity.ok(this.userService.verify(loginDto));
+    }
+
+    // Empty implementation. Can be implemented using blacklist or removing token in the frontend
+    @PreAuthorize("hasRole('USER')")
+    @Operation(summary = "Logout user", description = "Logout endpoint (dummy). Can be implemented using token blacklist or client-side removal.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "204", description = "Logout successful (no content)"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized - token missing or invalid")
+    })
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout() {
+        return ResponseEntity.noContent().build();
+    }
+}
