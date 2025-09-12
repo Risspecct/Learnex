@@ -37,3 +37,6 @@ application.properties
 
 new/
 part1.html
+
+/backend/Python/__pycache__/
+/backend/Python/features/__pycache__/
