@@ -34,3 +34,6 @@ build/
 
 .env
 application.properties
+
+new/
+part1.html
