@@ -113,11 +113,15 @@
             const result = await response.json();
             aiResultDiv.textContent = result;
 
+            // Automatically copy generated text into translator input
+            document.getElementById('text-to-translate').value = result;
+
         } catch (error) {
             console.error("Error fetching AI content:", error);
             aiResultDiv.textContent = 'Error: Could not fetch response from the AI server.';
         }
     });
+
 
     // --- Text Translator ---
     const translateForm = document.getElementById('translate-form');
