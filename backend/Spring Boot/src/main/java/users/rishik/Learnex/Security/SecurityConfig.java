@@ -59,6 +59,7 @@ public class SecurityConfig {
                                 "/v3/api-docs/**",
                                 "/docs",
                                 "/ai_function.html",
+                                "physics_lab.html",
                                 "/authentication.html",
                                 "/games.html",
                                 "/dashboard.html",

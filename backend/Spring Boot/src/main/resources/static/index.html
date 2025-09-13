@@ -3,73 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learnex Hub</title>
+    <title>Learnex Central Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .card-hover-effect {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-hover-effect:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1);
-        }
+        body { font-family: 'Inter', sans-serif; }
+        .card { transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-
-<div class="container mx-auto px-4 py-12">
+<body class="bg-gray-50">
+<div class="container mx-auto px-6 py-12">
     <header class="text-center mb-12">
-        <h1 class="text-5xl font-bold text-gray-900">Learnex Project Hub</h1>
-        <p class="text-xl text-gray-600 mt-4">Navigate through the different components of your application.</p>
+        <h1 class="text-5xl font-bold text-gray-800">Learnex Project Hub</h1>
+        <p class="text-xl text-gray-500 mt-3">Navigate to any of the project's components.</p>
     </header>
+    <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
-    <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <!-- Authentication Card -->
-        <a href="authentication.html" class="card-hover-effect bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center text-center">
-            <div class="bg-blue-100 text-blue-600 rounded-full p-4 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+        <!-- Card 1: Authentication -->
+        <a href="authentication.html" class="card rounded-xl overflow-hidden shadow-md bg-white">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Authentication System</h2>
+                <p class="text-gray-600">User login and registration portal powered by Spring Boot Security.</p>
             </div>
-            <h2 class="text-2xl font-bold mb-2">Authentication System</h2>
-            <p class="text-gray-600">User login and registration interface for the Spring Boot backend.</p>
         </a>
 
-        <!-- Offline Games Card -->
-        <a href="games.html" class="card-hover-effect bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center text-center">
-            <div class="bg-green-100 text-green-600 rounded-full p-4 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
+        <!-- Card 2: AI Function -->
+        <a href="ai_function.html" class="card rounded-xl overflow-hidden shadow-md bg-white">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">AI Content Generator</h2>
+                <p class="text-gray-600">Interface to the Python-based AI for generating educational content.</p>
             </div>
-            <h2 class="text-2xl font-bold mb-2">Offline Games</h2>
-            <p class="text-gray-600">A collection of educational games that can be played offline.</p>
         </a>
 
-        <!-- AI Function Card -->
-        <a href="ai_function.html" class="card-hover-effect bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center text-center">
-            <div class="bg-purple-100 text-purple-600 rounded-full p-4 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+        <!-- Card 3: Dashboard -->
+        <a href="dashboard.html" class="card rounded-xl overflow-hidden shadow-md bg-white">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Teacher Dashboard</h2>
+                <p class="text-gray-600">Analytics dashboard for teachers to view student performance data.</p>
             </div>
-            <h2 class="text-2xl font-bold mb-2">AI Python Function</h2>
-            <p class="text-gray-600">Interface to interact with the AI content generation backend.</p>
         </a>
 
-        <!-- Dashboard Card -->
-        <a href="dashboard.html" class="card-hover-effect bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center text-center">
-            <div class="bg-yellow-100 text-yellow-600 rounded-full p-4 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+        <!-- Card 4: Offline Games -->
+        <a href="games.html" class="card rounded-xl overflow-hidden shadow-md bg-white">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Offline Games Showcase</h2>
+                <p class="text-gray-600">Browse all available educational games that work offline.</p>
             </div>
-            <h2 class="text-2xl font-bold mb-2">Teacher Dashboard</h2>
-            <p class="text-gray-600">Analytics dashboard for teachers to monitor student progress.</p>
+        </a>
+
+        <!-- Card 5: Physics Lab Game (Direct Link) -->
+        <a href="physics_lab.html" class="card rounded-xl overflow-hidden shadow-md bg-gradient-to-br from-blue-500 to-indigo-600 text-white lg:col-span-2">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold mb-2">Launch Physics Lab</h2>
+                <p>Jump directly into the projectile motion simulator game.</p>
+            </div>
         </a>
 
     </main>
-
-    <footer class="text-center mt-16 text-gray-500">
-        <p>&copy; 2024 Learnex. All rights reserved.</p>
-    </footer>
 </div>
-
 </body>
 </html>
+
