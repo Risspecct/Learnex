@@ -63,7 +63,8 @@ public class SecurityConfig {
                                 "/authentication.html",
                                 "/games.html",
                                 "/dashboard.html",
-                                "index1.html"
+                                "index1.html",
+                                "phaser.min.js"
                         ).permitAll()
 
                         // All other requests must be authenticated
