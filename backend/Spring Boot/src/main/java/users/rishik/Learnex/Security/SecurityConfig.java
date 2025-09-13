@@ -57,7 +57,12 @@ public class SecurityConfig {
                                 "/auth/**",
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**",
-                                "/docs"
+                                "/docs",
+                                "/ai_function.html",
+                                "/authentication.html",
+                                "/games.html",
+                                "/dashboard.html",
+                                "index1.html"
                         ).permitAll()
 
                         // All other requests must be authenticated

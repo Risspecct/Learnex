@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learnex Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Reset and base styles */
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #ccefff 0%, #f0f6ff 100%);
+            color: #23395d;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+        .card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 8px 32px rgba(35,57,93,0.09), 0 0.5px 0.5px #b4eaff80;
+            padding: 32px;
+            width: 100%;
+            max-width: 400px;
+            margin: 2em auto;
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 16px 48px rgba(35,57,93,0.13);
+        }
+        h2 {
+            text-align: center;
+            color: #1e4663;
+            font-weight: 600;
+        }
+        form {
+            margin-top: 18px;
+            margin-bottom: 12px;
+        }
+        input {
+            width: 100%;
+            margin: 12px 0;
+            padding: 12px;
+            border-radius: 7px;
+            border: 1.5px solid #b4eaff;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.2s;
+            background: #f6fcff;
+        }
+        input:focus {
+            border-color: #50c4ed;
+            background: #e8faff;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 7px;
+            border: none;
+            background: linear-gradient(90deg, #39b7dd 0%, #50c4ed 80%);
+            color: #fff;
+            font-size: 1.09em;
+            font-weight: 600;
+            margin-top: 6px;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(80,196,237,0.1);
+            transition: background 0.2s;
+        }
+        button:hover, button:active {
+            background: linear-gradient(90deg, #2896bd 0%, #60d6ff 85%);
+            color: #fff;
+        }
+        .flex-row {
+            display: flex;
+            gap: 12px;
+        }
+        .toggle-link {
+            color: #4cafc9;
+            font-size: 0.96em;
+            text-align: right;
+            display: block;
+            margin: 7px 0 14px 0;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        hr {
+            border: none;
+            border-top: 1.5px solid #e0f3ff;
+            margin: 32px 0;
+            width: 100%;
+        }
+        .success {
+            color: #16c26d;
+            background: #f6fff7;
+            text-align: center;
+            border-radius: 4px;
+            padding: 7px 0;
+            margin-top: 8px;
+        }
+        .error {
+            color: #fd2d2d;
+            background: #fff6f5;
+            text-align: center;
+            border-radius: 4px;
+            padding: 7px 0;
+            margin-top: 8px;
+        }
+        #user-info {
+            margin: 1em 0;
+            padding: 14px 16px;
+            background: #f6fcff;
+            border-radius: 6px;
+            box-shadow: 0 0.5px 3px #b4eaff60;
+            font-size: 1.07em;
+        }
+        @media (max-width: 500px) {
+            .card { padding: 18px; max-width: 97vw; }
+            h2 { font-size: 1.3em; }
+            input, button { font-size: 0.97em; padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card" id="auth-card">
+
+        <h2 id="form-header">Login</h2>
+        <form id="login-form">
+            <input type="email" id="login-email" placeholder="Email" required autocomplete="username" />
+            <input type="password" id="login-password" placeholder="Password" required autocomplete="current-password" />
+            <button type="submit">Login</button>
+        </form>
+        <span class="toggle-link" id="show-register">Don't have an account? Register</span>
+        <div id="login-msg"></div>
+
+        <form id="register-form" style="display:none;">
+            <input type="email" id="register-email" placeholder="Email" required autocomplete="username" />
+            <input type="text" id="register-username" placeholder="Username" required />
+            <input type="password" id="register-password" placeholder="Password" required autocomplete="new-password"/>
+            <button type="submit">Register</button>
+        </form>
+        <span class="toggle-link" id="show-login" style="display:none;">Already have an account? Login</span>
+        <div id="register-msg"></div>
+    </div>
+
+    <div class="card" id="user-card" style="display:none;">
+        <h2>Welcome!</h2>
+        <div id="user-info"></div>
+        <button id="logout-btn">Logout</button>
+    </div>
+</div>
+
+<script>
+    const API_BASE = "";
+
+    let jwtToken = null;
+
+    // Toggle between forms
+    document.getElementById('show-register').onclick = function() {
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('login-msg').textContent = '';
+        document.getElementById('register-form').style.display = '';
+        document.getElementById('show-login').style.display = '';
+        document.getElementById('show-register').style.display = 'none';
+        document.getElementById('form-header').textContent = 'Register';
+    };
+    document.getElementById('show-login').onclick = function() {
+        document.getElementById('register-form').style.display = 'none';
+        document.getElementById('register-msg').textContent = '';
+        document.getElementById('login-form').style.display = '';
+        document.getElementById('show-register').style.display = '';
+        document.getElementById('show-login').style.display = 'none';
+        document.getElementById('form-header').textContent = 'Login';
+    };
+
+    document.getElementById('login-form').onsubmit = async function(e) {
+    e.preventDefault();
+    document.getElementById('login-msg').textContent = '';
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+    try {
+        const res = await fetch(`${API_BASE}/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+        let raw = await res.text();
+        let data;
+        try {
+            data = JSON.parse(raw);
+        } catch (e) {
+            data = raw;
+        }
+
+        if(data.accessToken) {
+            jwtToken = data.accessToken;
+        } else if(data.token) {
+            jwtToken = data.token;
+        } else if(typeof data === "string" && !data.startsWith('Login')) {
+            jwtToken = data;
+        } else {
+            throw new Error(data.message ?? data);
+        }
+        document.getElementById('login-msg').textContent = 'Login successful!';
+        document.getElementById('login-msg').className = 'success';
+        showUserCard();
+    } catch(err) {
+        document.getElementById('login-msg').textContent = err.message;
+        document.getElementById('login-msg').className = 'error';
+    }
+};
+
+    // Register
+    document.getElementById('register-form').onsubmit = async function(e) {
+        e.preventDefault();
+        document.getElementById('register-msg').textContent = '';
+        const email = document.getElementById('register-email').value.trim();
+        const username = document.getElementById('register-username').value.trim();
+        const password = document.getElementById('register-password').value;
+        if(password.length < 5) {
+            document.getElementById('register-msg').textContent = "Password must be at least 5 characters.";
+            document.getElementById('register-msg').className = 'error';
+            return;
+        }
+        try {
+            const res = await fetch(`${API_BASE}/register`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, username, password })
+            });
+            if(!res.ok) {
+                const err = await res.text();
+                throw new Error(err);
+            }
+            document.getElementById('register-msg').textContent = 'Registration successful! Now log in.';
+            document.getElementById('register-msg').className = 'success';
+        } catch(err) {
+            document.getElementById('register-msg').textContent = err.message;
+            document.getElementById('register-msg').className = 'error';
+        }
+    };
+
+    // Show user info
+    async function showUserCard() {
+        document.getElementById('auth-card').style.display = 'none';
+        document.getElementById('user-card').style.display = 'block';
+        try {
+            const res = await fetch(`${API_BASE}/user/me`, {
+                method: 'GET',
+                headers: { 'Authorization': 'Bearer ' + jwtToken }
+            });
+            if(!res.ok) throw new Error('Session invalid');
+            const user = await res.json();
+            document.getElementById('user-info').innerHTML = `
+                <strong>ID:</strong> ${user.id} <br>
+                <strong>Username:</strong> ${user.username} <br>
+                <strong>Email:</strong> ${user.email}
+            `;
+        } catch(err) {
+            document.getElementById('user-info').textContent = 'Error loading user info';
+        }
+    }
+
+    // Logout
+    document.getElementById('logout-btn').onclick = function() {
+        jwtToken = null;
+        document.getElementById('user-card').style.display = 'none';
+        document.getElementById('auth-card').style.display = 'block';
+        document.getElementById('login-form').style.display = '';
+        document.getElementById('register-form').style.display = 'none';
+        document.getElementById('show-register').style.display = '';
+        document.getElementById('show-login').style.display = 'none';
+        document.getElementById('form-header').textContent = 'Login';
+    };
+</script>
+</body>
+</html>
