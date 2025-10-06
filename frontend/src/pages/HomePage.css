@@ -60,11 +60,11 @@
   color: #4b5563;
 }
 .card-launch {
-  background-image: linear-gradient(to bottom right, #3b82f6, #6366f1);
-  color: white;
+  background-image: linear-gradient(to bottom right, #051732, #060731);
+  color: black;
 }
 .card-launch h2, .card-launch p {
-    color: white;
+  color: black;
 }
 @media (min-width: 1024px) {
   .card-launch {

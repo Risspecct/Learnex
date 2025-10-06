@@ -14,9 +14,9 @@ export default defineConfig({
       // The 'manifest' object is used to generate the manifest.webmanifest file.
       // This file provides metadata about your app for the "install" prompt.
       manifest: {
-        name: 'Advanced Physics Lab',
-        short_name: 'PhysicsLab',
-        description: 'A projectile motion physics simulator game.',
+        name: 'Learnex Project Hub',
+        short_name: 'Learnex',
+        description: 'The Learnex educational application.',
         theme_color: '#1a1a1a',
         background_color: '#1a1a1a',
         display: 'standalone',

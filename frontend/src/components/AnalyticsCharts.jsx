@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
-import { getSectionAverages } from '../data';
+import { getSectionAverages } from './data';
 
 // More vibrant, less predictable colors
 const SUBJECT_COLORS = {
