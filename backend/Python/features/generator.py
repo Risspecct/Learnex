@@ -1,6 +1,6 @@
 from typing import Any
 from pydantic import BaseModel
-from . import ai_config
+from features import ai_config
 
 class GeneratorRequest(BaseModel):
     topic: str
@@ -30,7 +30,7 @@ Output Format:
 
 def generate_text(request: GeneratorRequest):
     """
-    Generate text based on the input request using the Granite model.
+    Generate text based on the input request using the Gemini model.
     """
     
     # Format the prompt with details from the request
@@ -40,5 +40,5 @@ def generate_text(request: GeneratorRequest):
         subject=request.subject
     )
     
-    response = ai_config.granite_model.generate_text(prompt)
-    return response
+    response = ai_config.model.generate_content(prompt)
+    return response.text
