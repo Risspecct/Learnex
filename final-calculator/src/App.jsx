@@ -1,13 +1,18 @@
-import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import AuthPage from './pages/AuthPage';
+import PhaserGame from './components/PhaserGame';
 import './App.css';
-// Update the import to use the .jsx extension
-import PhaserGame from './components/PhaserGame.jsx'; 
 
 function App() {
   return (
-    <div className="App">
-      <PhaserGame />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/game/physics-lab" element={<PhaserGame />} />
+        <Route path="/login" element={<AuthPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
