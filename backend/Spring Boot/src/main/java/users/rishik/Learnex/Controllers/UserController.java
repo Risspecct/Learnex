@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import users.rishik.Learnex.Services.UserService;
 
 @RestController
-@PreAuthorize("hasRole('USER')")
+@PreAuthorize("hasAnyRole('STUDENT', 'TEACHER')")
 @RequestMapping("/user")
 public class UserController {
     private final UserService userService;

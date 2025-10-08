@@ -16,6 +16,12 @@ const HomePage = () => {
             <p>User login and registration portal.</p>
           </div>
         </Link>
+        <Link to="/profile" className="card">
+          <div> 
+            <h2>My Profile</h2>
+            <p>View your details and manage your account.</p>
+          </div>
+        </Link>
         <Link to="/ai-tools" className="card">
           <div>
             <h2>AI Content Generator</h2>

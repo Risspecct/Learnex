@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loginUser, registerUser } from '../apiService';
+import { useAuth } from '../context/AuthContext';
+import { registerUser } from '../apiService';
 import './AuthPage.css';
 
 const AuthPage = () => {
@@ -8,40 +9,41 @@ const AuthPage = () => {
   const [formData, setFormData] = useState({ email: '', username: '', password: '' });
   const [message, setMessage] = useState({ text: '', type: '' });
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setMessage({ text: 'Processing...', type: 'info' });
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        setMessage({ text: 'Processing...', type: 'info' });
 
-    try {
-      if (isRegistering) {
-        await registerUser({
-          email: formData.email,
-          username: formData.username,
-          password: formData.password,
-        });
-        setMessage({ text: 'Registration successful! Please log in.', type: 'success' });
-        setIsRegistering(false); // Switch to login form
-      } else {
-        const jwtToken = await loginUser({
-          email: formData.email,
-          password: formData.password,
-        });
-        // Store the token and redirect
-        localStorage.setItem('jwtToken', jwtToken);
-        setMessage({ text: 'Login successful!', type: 'success' });
-        // Redirect to the home page after a short delay
-        setTimeout(() => navigate('/'), 1000);
-      }
-    } catch (error) {
-      setMessage({ text: error.message, type: 'error' });
-    }
-  };
+        try {
+          if (isRegistering) {
+            await registerUser({
+              email: formData.email,
+              username: formData.username,
+              password: formData.password,
+            });
+            setMessage({ text: 'Registration successful! Please log in.', type: 'success' });
+            setIsRegistering(false); // Switch to login form
+          } else {
+            // Wait for the login process (including user fetch) to complete
+            await login({ email: formData.email, password: formData.password });
+
+            setMessage({ text: 'Login successful! Redirecting...', type: 'success' });
+
+            // Navigate AFTER login is fully complete
+            navigate('/profile');
+          }
+        } catch (error) {
+          console.error("Login failed:", error);
+          setMessage({ text: error.message, type: 'error' });
+          
+        }
+      };
 
   return (
     <div className="auth-container">

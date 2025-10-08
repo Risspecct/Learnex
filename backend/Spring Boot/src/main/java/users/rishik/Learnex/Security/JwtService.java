@@ -19,7 +19,7 @@ import java.util.Date;
 import java.util.function.Function;
 
 @Slf4j
-@ConfigurationProperties(prefix = "jwt")
+// @ConfigurationProperties(prefix = "jwt")
 @Service
 public class JwtService {
     private final JwtConfig jwtConfig;

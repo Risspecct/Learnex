@@ -34,52 +34,52 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         this.userDetailsService = userDetailsService;
         this.objectMapper = objectMapper;
     }
-
     @Override
-    protected void doFilterInternal(HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
-        log.info("Checking for JWT token in the request");
+    protected void doFilterInternal(
+            @NonNull HttpServletRequest request,
+            @NonNull HttpServletResponse response,
+            @NonNull FilterChain filterChain) throws ServletException, IOException {
+
+        // START: This is the crucial block to bypass the filter
+        final String requestURI = request.getRequestURI();
+        if (requestURI.equals("/login") || requestURI.equals("/register")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+        // END: Bypass block
+
+        log.info("Checking for JWT token in the request for URI: {}", requestURI);
         final String authHeader = request.getHeader("Authorization");
         String jwt;
         String username;
 
-        if (authHeader == null || !authHeader.startsWith("Bearer ") ){
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
 
         jwt = authHeader.substring(7);
-
         try {
             username = this.jwtService.extractUsername(jwt);
-
-            log.debug("Extracted username from the token: {}", username);
-
             if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-                if (userDetails == null) {
-                    errorResponse(request, response, new UsernameNotFoundException("Username not found"),
-                            "No account is associated with the provided email. Please try again.");
-                    return;
-                }
                 if (jwtService.isTokenValid(jwt, userDetails.getUsername())) {
-                    UsernamePasswordAuthenticationToken authToken =
-                            new UsernamePasswordAuthenticationToken(
-                                    userDetails,
-                                    null,
-                                    userDetails.getAuthorities()
-                            );
+                    UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                            userDetails,
+                            null,
+                            userDetails.getAuthorities()
+                    );
                     authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authToken);
                 }
             }
-        } catch (JwtExpiredException ex) {
-            errorResponse(request, response, ex, "Use refresh token to get a new JWT");
-            return;
-        } catch (InvalidJwtException ex) {
-            errorResponse(request, response, ex, "Login to get a valid token");
-            return;
+        } catch (JwtExpiredException | InvalidJwtException ex) {
+            // Centralize exception handling for JWT issues
+            errorResponse(request, response, ex, "Your session is invalid or has expired. Please log in again.");
+            return; // Stop the filter chain on auth error
         } catch (Exception ex) {
-            errorResponse(request, response, ex, "Unexpected error occurred");
+            errorResponse(request, response, ex, "An unexpected error occurred during authentication.");
+            return; // Stop the filter chain on auth error
         }
         filterChain.doFilter(request, response);
     }

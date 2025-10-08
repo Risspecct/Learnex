@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage';
 import AuthPage from './pages/AuthPage';
 import DashboardPage from './pages/DashboardPage'; 
 import PhaserGame from './components/PhaserGame';
+import ProfilePage from './pages/ProfilePage';
 import './App.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/game/physics-lab" element={<PhaserGame />} />
         <Route path="/login" element={<AuthPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
     </BrowserRouter>
