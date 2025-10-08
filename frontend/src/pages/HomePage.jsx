@@ -1,48 +1,52 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import './HomePage.css';
 
 const HomePage = () => {
+  const { user } = useAuth();
+
   return (
-    <div className="container">
-      <header className="header">
-        <h1>Learnex Project Hub</h1>
-        <p>Navigate to any of the project's components.</p>
+    <>
+      <header className="app-bar">
+        <h1>Learnex</h1>
       </header>
-      <main className="main-grid">
-        <Link to="/login" className="card">
-          <div>
-            <h2>Authentication System</h2>
-            <p>User login and registration portal.</p>
-          </div>
-        </Link>
-        <Link to="/profile" className="card">
-          <div> 
-            <h2>My Profile</h2>
-            <p>View your details and manage your account.</p>
-          </div>
-        </Link>
-        <Link to="/ai-tools" className="card">
-          <div>
-            <h2>AI Content Generator</h2>
-            <p>Interface for the AI content generator.</p>
-          </div>
-        </Link>
-        <Link to="/dashboard" className="card">
-          <div>
-            <h2>Teacher Dashboard</h2>
-            <p>Analytics dashboard for teachers.</p>
-          </div>
-        </Link>
-        {/* The link below now points to the React-based game route */}
-        <Link to="/game/physics-lab" className="card card-launch">
-          <div>
-            <h2>Launch Physics Lab</h2>
-            <p>Jump directly into the projectile motion simulator game.</p>
-          </div>
-        </Link>
-      </main>
-    </div>
+      <div className="home-container">
+        <main className="tab-nav">
+          <NavLink to={user ? "/profile" : "/login"} className="tab">
+            <span className="tab-icon">👤</span>
+            <div>
+              <h3>{user ? "My Profile" : "Login / Register"}</h3>
+              <p>{user ? "Manage your account" : "Access your account"}</p>
+            </div>
+          </NavLink>
+
+          <NavLink to="/dashboard" className="tab">
+            <span className="tab-icon">📊</span>
+            <div>
+              <h3>Teacher Dashboard</h3>
+              <p>View student analytics and performance.</p>
+            </div>
+          </NavLink>
+
+          <NavLink to="/ai-tools" className="tab">
+            <span className="tab-icon">🤖</span>
+            <div>
+              <h3>AI Tools</h3>
+              <p>Generate content and translate text.</p>
+            </div>
+          </NavLink>
+
+          <NavLink to="/game/physics-lab" className="tab">
+            <span className="tab-icon">🎮</span>
+            <div>
+              <h3>Physics Lab</h3>
+              <p>Launch the projectile motion game.</p>
+            </div>
+          </NavLink>
+        </main>
+      </div>
+    </>
   );
 };
 
