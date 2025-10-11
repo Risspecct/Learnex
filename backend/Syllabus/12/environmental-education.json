@@ -1,0 +1,46 @@
+{
+    "board": "Council of Higher Secondary Education, Odisha",
+    "class": "Class 12",
+    "subject": "Environmental Education",
+    "academic_year": "2024-2025",
+    "units": [{
+        "unit_name": "Environment Components & Human Impact",
+        "topics": [{
+            "title": "Environment: Components",
+            "description": "Atmosphere, Lithosphere, Hydrosphere and Biosphere. Human impact on environment."
+        }, {
+            "title": "Environmental Problems",
+            "description": "Urban and rural environmental problems, stress on civic amenities."
+        }]
+    }, {
+        "unit_name": "Natural Resources & Conservation",
+        "topics": [{
+            "title": "Natural Resources",
+            "description": "Land, water, forest, freshwater, marine resources. Resources of Orissa."
+        }, {
+            "title": "Biodiversity and its conservation",
+            "description": "Concept of Biodiversity, conservation methods."
+        }, {
+            "title": "Energy",
+            "description": "Renewable and non-renewable resources, conventional and non-conventional energy."
+        }]
+    }, {
+        "unit_name": "Environmental Pollution & Management",
+        "topics": [{
+            "title": "Environmental Pollution",
+            "description": "Types of pollution (air, water, soil, noise), Greenhouse effect, Global Warming, Ozone layer depletion."
+        }, {
+            "title": "Environmental Management",
+            "description": "Management of solid, liquid and gaseous wastes, resource management, disaster management, sustainable development."
+        }]
+    }, {
+        "unit_name": "Environmental Laws & Road Safety",
+        "topics": [{
+            "title": "Environmental Laws",
+            "description": "Constitutional Provisions, Water Act 1974, Air Act 1981, E(P) Act 1986, CPCB and SPCB."
+        }, {
+            "title": "Road Safety",
+            "description": "Concept & Need, traffic signs, safety guidelines, offence and penalties, traffic management."
+        }]
+    }]
+}

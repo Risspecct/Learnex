@@ -1,0 +1,51 @@
+{
+  "board": "Council of Higher Secondary Education, Odisha",
+  "class": "Class 12",
+  "subject": "Mathematics",
+  "academic_year": "2024-2025",
+  "units": [
+    {
+      "unit_name": "Relations, Functions & Linear Programming",
+      "marks": 20,
+      "topics": [
+        { "title": "Relations and Functions", "description": "Types of relations, composite functions, inverse of a function, binary operations." },
+        { "title": "Inverse Trigonometric Functions", "description": "Definition, range, domain, graphs, elementary properties." },
+        { "title": "Linear Programming", "description": "Introduction, graphical method of solution, feasible and infeasible regions/solutions." }
+      ]
+    },
+    {
+      "unit_name": "Algebra & Probability",
+      "marks": 20,
+      "topics": [
+        { "title": "Matrices", "description": "Concept, types of matrices, operations, invertible matrices." },
+        { "title": "Determinants", "description": "Determinant of a square matrix, properties, application in finding area, solving linear equations." },
+        { "title": "Probability", "description": "Conditional probability, Baye’s theorem, random variable, Bernoulli trials, Binomial distribution." }
+      ]
+    },
+    {
+      "unit_name": "Differential Calculus",
+      "marks": 20,
+      "topics": [
+        { "title": "Continuity and Differentiability", "description": "Derivatives of composite, inverse trigonometric, and implicit functions. Second-order derivatives." },
+        { "title": "Applications of Derivatives", "description": "Rate of change, increasing/decreasing functions, tangents, normals, maxima and minima." }
+      ]
+    },
+    {
+      "unit_name": "Integral Calculus & Differential Equations",
+      "marks": 20,
+      "topics": [
+        { "title": "Integrals", "description": "Integration as inverse of differentiation, integration by substitution, partial fractions, and parts." },
+        { "title": "Applications of the Integrals", "description": "Finding the area under simple curves and between curves." },
+        { "title": "Differential Equations", "description": "Definition, order, degree, formation and solutions of homogeneous differential equations." }
+      ]
+    },
+    {
+      "unit_name": "Vectors and Three-Dimensional Geometry",
+      "marks": "Not Specified in Provided Data",
+      "topics": [
+        { "title": "Vectors", "description": "Vectors and scalars, types, multiplication, position vector, products of vectors." },
+        { "title": "Three-dimensional Geometry", "description": "Direction cosines/ratios, Cartesian and vector equation of a line and plane, shortest distance between two lines." }
+      ]
+    }
+  ]
+}

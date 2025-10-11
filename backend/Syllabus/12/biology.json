@@ -1,0 +1,48 @@
+{
+  "board": "Council of Higher Secondary Education, Odisha",
+  "class": "Class 12",
+  "subject": "Biology",
+  "academic_year": "2024-2025",
+  "units": [
+    {
+      "unit_name": "Reproduction",
+      "topics": [
+        { "title": "Reproduction in organisms", "description": "Modes of reproduction." },
+        { "title": "Sexual reproduction in flowering plants", "description": "Flower structure, pollination, double fertilization, seed and fruit development." },
+        { "title": "Human Reproduction", "description": "Reproductive systems, gametogenesis, menstrual cycle, fertilization, pregnancy." },
+        { "title": "Reproductive health", "description": "Prevention of STDs, birth control, infertility." }
+      ]
+    },
+    {
+      "unit_name": "Genetics and Evolution",
+      "topics": [
+        { "title": "Heredity and Variation", "description": "Mendelian inheritance, chromosome theory, linkage and crossing over." },
+        { "title": "Sex determination", "description": "Determination in humans, birds, honey bee; Mendelian and chromosomal disorders." },
+        { "title": "Molecular Basis of Inheritance", "description": "Structure of DNA/RNA, replication, gene expression, Lac Operon, DNA fingerprinting." },
+        { "title": "Evolution", "description": "Origin of life, Darwinism, Modern Synthetic Theory, Hardy-Weinberg’s principle, human evolution." }
+      ]
+    },
+    {
+      "unit_name": "Biology and Human Welfare",
+      "topics": [
+        { "title": "Health and Disease", "description": "Pathogens, immunology, vaccines, Cancer, HIV/AIDS, drug abuse." },
+        { "title": "Improvement in food production", "description": "Details not specified in provided data." },
+        { "title": "Microbes in human welfare", "description": "Use in household food processing, industrial production, sewage treatment." }
+      ]
+    },
+    {
+      "unit_name": "Biotechnology and its Applications",
+      "topics": [
+        { "title": "Principles and process of Biotechnology", "description": "Genetic engineering (Recombinant DNA technology)." },
+        { "title": "Application of Biotechnology", "description": "Insulin/vaccine production, gene therapy, GM organisms (Bt crops), biosafety issues." }
+      ]
+    },
+    {
+      "unit_name": "Ecology and environment",
+      "topics": [
+        { "title": "Organisms and environment", "description": "Habitat, niche, population interactions (mutualism, competition)." },
+        { "title": "Biodiversity and its conservation", "description": "Concept, importance, hotspots, endangered organisms, Red Data Book, sanctuaries." }
+      ]
+    }
+  ]
+}

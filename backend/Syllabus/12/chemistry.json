@@ -1,0 +1,92 @@
+{
+  "board": "Council of Higher Secondary Education, Odisha",
+  "class": "Class 12",
+  "subject": "Chemistry",
+  "academic_year": "2024-2025",
+  "units": [
+    {
+      "unit_name": "Solid State, Solutions, Electrochemistry & Chemical Kinetics",
+      "marks": 23,
+      "topics": [
+        {
+          "title": "Solid State",
+          "description": "Classification of solids, amorphous and crystalline solids, unit cell, packing in solids, voids, point defects, electrical and magnetic properties, band theory of metals."
+        },
+        {
+          "title": "Solutions",
+          "description": "Types of solutions, concentration, solubility, colligative properties (Raoult’s law, elevation of boiling point, depression of freezing point, osmotic pressure), van't Hoff factor."
+        },
+        {
+          "title": "Electrochemistry",
+          "description": "Redox reactions, conductance in electrolytic solutions, Kohlrausch’s Law, electrolysis, Galvanic cells, Nernst equation, Gibbs energy, fuel cells, corrosion."
+        },
+        {
+          "title": "Chemical Kinetics",
+          "description": "Rate of reaction, factors affecting rates, order and molecularity, integrated rate equations, half-life, collision theory, activation energy."
+        }
+      ]
+    },
+    {
+      "unit_name": "Surface Chemistry & Isolation of Elements",
+      "marks": 19,
+      "topics": [
+        {
+          "title": "Surface Chemistry",
+          "description": "Adsorption (physisorption and chemisorption), catalysts, colloids, Tyndall effect, Brownian movement, electrophoresis, emulsions."
+        },
+        {
+          "title": "General Principles and Processes of Isolation of Elements",
+          "description": "Principles of extraction (concentration, oxidation, reduction), refining. Principles of extraction of aluminium, copper, zinc, and iron."
+        }
+      ]
+    },
+    {
+      "unit_name": "p, d, f Block Elements & Coordination Compounds",
+      "marks": 28,
+      "topics": [
+        {
+          "title": "p-Block Elements",
+          "description": "Group 15, 17, and 18 elements: introduction, electronic configuration, properties, preparation of compounds."
+        },
+        {
+          "title": "d and f Block Elements",
+          "description": "General introduction, properties of transition metals, preparation of K2CrO7 and KMnO4."
+        },
+        {
+          "title": "Coordination Compounds",
+          "description": "Introduction, ligands, IUPAC nomenclature, Werner’s theory, VBT, CFT, stereoisomerism."
+        }
+      ]
+    },
+    {
+      "unit_name": "Organic Chemistry & Chemistry in Everyday Life",
+      "marks": "Not Specified in Provided Data",
+      "topics": [
+        {
+          "title": "Haloalkanes and Haloarenes",
+          "description": "Nomenclature, properties, substitution reactions, environmental effects of common compounds."
+        },
+        {
+          "title": "Alcohols, Phenols and Ethers",
+          "description": "Nomenclature, preparation, properties, identification of alcohol types, acidic nature of phenol."
+        },
+        {
+          "title": "Aldehydes, Ketones and Carboxylic Acids",
+          "description": "Nomenclature, preparation, properties, mechanism of nucleophilic addition."
+        },
+        {
+          "title": "Organic compounds containing Nitrogen",
+          "description": "Amines (nomenclature, classification, properties), Diazonium salts."
+        },
+        {
+          "title": "Polymers",
+          "description": "Classification, polymerization, important polymers (polythene, nylon), biodegradable polymers."
+        },
+        {
+          "title": "Chemistry in Everyday life",
+          "description": "Chemicals in Medicines (analgesics, antibiotics), in Food (preservatives, sweeteners), and Cleansing agents (soaps, detergents)."
+        }
+      ]
+    }
+  ]
+}

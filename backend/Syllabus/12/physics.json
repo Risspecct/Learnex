@@ -1,0 +1,73 @@
+{
+    "board": "Council of Higher Secondary Education, Odisha",
+    "class": "Class 12",
+    "subject": "Physics",
+    "academic_year": "2024-2025",
+    "units": [{
+        "unit_name": "Electrostatics & Current Electricity",
+        "marks": 15,
+        "topics": [{
+            "title": "Electric charges and fields",
+            "description": "Coulomb’s law, superposition principle, electric field, field lines, dipole, flux, Gauss’s theorem."
+        }, {
+            "title": "Electrostatic potential and capacitance",
+            "description": "Electric potential, potential difference, equipotential surfaces, capacitors, capacitance, series and parallel combination."
+        }, {
+            "title": "Current Electricity",
+            "description": "Drift velocity, Ohm’s law, resistance, resistivity, Kirchhoff’s law, potentiometer."
+        }]
+    }, {
+        "unit_name": "Magnetic Effect of Current & Magnetism",
+        "marks": 16,
+        "topics": [{
+            "title": "Moving charges and magnetism",
+            "description": "Biot-Savart law, Ampere’s law, cyclotron, force on current-carrying conductor, moving coil galvanometer."
+        }, {
+            "title": "Magnetism and matter",
+            "description": "Magnetic dipole moment, bar magnet, magnetic field lines."
+        }]
+    }, {
+        "unit_name": "Electromagnetic Induction & Waves",
+        "marks": 17,
+        "topics": [{
+            "title": "Electromagnetic induction and Alternating current",
+            "description": "Faraday’s laws, Lenz's Law, self and mutual induction, AC currents, LCR series circuit, resonance, AC generator, transformer."
+        }, {
+            "title": "Electromagnetic waves",
+            "description": "Displacement current, characteristics of EM waves, electromagnetic spectrum."
+        }]
+    }, {
+        "unit_name": "Optics",
+        "marks": "Not specified in provided data",
+        "topics": [{
+            "title": "Ray optics and optical instruments",
+            "description": "Reflection, refraction, mirror formula, lens formula, total internal reflection, microscopes, telescopes."
+        }, {
+            "title": "Waves Optics",
+            "description": "Huygen’s principle, interference, Young’s double-slit experiment, polarization, Brewster’s law."
+        }]
+    }, {
+        "unit_name": "Dual Nature of Matter & Radiation, Atoms & Nuclei",
+        "marks": 10,
+        "topics": [{
+            "title": "Dual nature of Radiation and matter",
+            "description": "Photoelectric effect, Einstein’s photoelectric equation, de-Broglie relation."
+        }, {
+            "title": "Atoms",
+            "description": "Rutherford’s model, Bohr model, energy levels, hydrogen spectrum."
+        }, {
+            "title": "Nuclei",
+            "description": "Nuclear force, binding energy, fission, fusion, radioactivity, half-life."
+        }]
+    }, {
+        "unit_name": "Semiconductor Electronics & Communication",
+        "marks": 12,
+        "topics": [{
+            "title": "Semiconductor electronics",
+            "description": "Energy bands, p-type and n-type semiconductors, p-n junction diode, Zener diode, transistor, logic gates."
+        }, {
+            "title": "Communication System",
+            "description": "Elements of communication, propagation of EM waves, modulation, mobile telephony, GPS."
+        }]
+    }]
+}
