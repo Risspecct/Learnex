@@ -2,11 +2,9 @@
   "board": "Council of Higher Secondary Education, Odisha",
   "class": "Class 12",
   "subject": "Chemistry",
-  "academic_year": "2024-2025",
   "units": [
     {
       "unit_name": "Solid State, Solutions, Electrochemistry & Chemical Kinetics",
-      "marks": 23,
       "topics": [
         {
           "title": "Solid State",
@@ -28,7 +26,6 @@
     },
     {
       "unit_name": "Surface Chemistry & Isolation of Elements",
-      "marks": 19,
       "topics": [
         {
           "title": "Surface Chemistry",
@@ -42,7 +39,6 @@
     },
     {
       "unit_name": "p, d, f Block Elements & Coordination Compounds",
-      "marks": 28,
       "topics": [
         {
           "title": "p-Block Elements",
@@ -60,7 +56,6 @@
     },
     {
       "unit_name": "Organic Chemistry & Chemistry in Everyday Life",
-      "marks": "Not Specified in Provided Data",
       "topics": [
         {
           "title": "Haloalkanes and Haloarenes",
