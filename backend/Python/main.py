@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from features.translator_api import router as translator_router
 from features.ai_router import router as ai_router
 from fastapi.middleware.cors import CORSMiddleware
+from Syllabus.syllabus_router import router as syllabus_router
 import uvicorn
 
 app = FastAPI()
@@ -19,6 +20,7 @@ app.add_middleware(
 
 app.include_router(translator_router, prefix="/api",tags=["translator"])
 app.include_router(ai_router, prefix="/ai", tags=["AI Services"])
+app.include_router(syllabus_router, prefix="/syllabus", tags=["Syllabus"])
 
 @app.get("/")
 def home():
