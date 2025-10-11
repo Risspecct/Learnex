@@ -1,0 +1,42 @@
+{
+  "board": "Board of Secondary Education, Odisha",
+  "class": "Class 10",
+  "subject": "General Science",
+  "academic_year": "2025-26",
+  "prescribed_textbooks": [
+    "Physical Science",
+    "Life Science"
+  ],
+  "syllabus": [
+    {
+      "textbook": "Physical Science",
+      "chapters": [
+        { "name": "Chemical Reactions and Chemical Equations" },
+        { "name": "Acids, Bases, and Salts" },
+        { "name": "Metals and Non-metals" },
+        { "name": "Light – Reflection and Refraction" },
+        { "name": "The Human Eye and the Colourful World" },
+        { "name": "Carbon and its Compounds" },
+        { "name": "Periodic Classification of Elements" },
+        { "name": "Electricity" },
+        { "name": "Magnetic Effects of Electric Current" }
+      ]
+    },
+    {
+      "textbook": "Life Science",
+      "chapters": [
+        { "name": "Nutrition" },
+        { "name": "Respiration" },
+        { "name": "Transport and Circulation" },
+        { "name": "Excretion" },
+        { "name": "Control and Coordination" },
+        { "name": "Reproduction" },
+        { "name": "Heredity and Evolution" },
+        { "name": "Sources of Energy" },
+        { "name": "Our Environment" },
+        { "name": "Conservation of Natural Resources" },
+        { "name": "Sustainable Management of Natural Resources" }
+      ]
+    }
+  ]
+}
