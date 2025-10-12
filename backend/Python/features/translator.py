@@ -1,10 +1,12 @@
 from googletrans import Translator
 import asyncio
 
+
 async def translate_text(text, dest_lang):
-  translator = Translator()
-  result = await translator.translate(text, dest=dest_lang)
-  return result.text
+    translator = Translator(service_urls=['translate.googleapis.com'])
+    result = await translator.translate(text, dest=dest_lang)
+    return result.text
+
 
 
 if __name__ == "__main__":

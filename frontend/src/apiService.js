@@ -68,3 +68,20 @@ export const deleteUser = async () => {
   });
   return response.text();
 };
+
+export const generateAiContent = async (requestData) => {
+  const response = await authenticatedRequest('/api/ai/generate', {
+    method: 'POST',
+    body: JSON.stringify(requestData),
+  });
+  return response.json();
+};
+
+export const translateText = async (text, destLang) => {
+  const endpoint = '/api/ai/translate';
+  const response = await authenticatedRequest(endpoint, {
+    method: 'POST', 
+    body: JSON.stringify({ text: text, dest_lang: destLang }), // Send data in the body
+  });
+  return response.json();
+};
