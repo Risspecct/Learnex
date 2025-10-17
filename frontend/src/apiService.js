@@ -85,3 +85,12 @@ export const translateText = async (text, destLang) => {
   });
   return response.json();
 };
+
+export const syncScores = async (scores) => {
+  const response = await authenticatedRequest('/api/scores/sync', {
+    method: 'POST',
+    body: JSON.stringify(scores),
+  });
+  // If the request fails, authenticatedRequest will throw an error
+  return response;
+};

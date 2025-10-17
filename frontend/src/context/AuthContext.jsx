@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { loginUser as apiLogin, getUserInfo } from '../apiService';
+import { triggerSync } from '../syncService'; // Import the new sync function
 
 const AuthContext = createContext(null);
 
@@ -14,34 +15,45 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
-  // This effect runs on initial app load to validate an existing token
+  // This effect runs on app load and when the network status changes
   useEffect(() => {
-    const validateToken = async () => {
+    const validateTokenAndSync = async () => {
       if (token) {
         try {
           const userInfo = await getUserInfo();
           setUser(userInfo);
+          await triggerSync(); // Attempt to sync after user is validated
         } catch (error) {
           console.error("Token validation failed:", error);
-          logout(); // Clear invalid token
+          logout();
         }
       }
       setLoading(false);
     };
-    validateToken();
-  }, []); // Run only once on mount
+
+    validateTokenAndSync();
+
+    // Add event listeners for online/offline status
+    window.addEventListener('online', triggerSync);
+
+    // Cleanup function to remove the event listener
+    return () => {
+      window.removeEventListener('online', triggerSync);
+    };
+  }, []);
 
   const login = async (credentials) => {
     const jwtToken = await apiLogin(credentials);
     localStorage.setItem('jwtToken', jwtToken);
-    setToken(jwtToken); // Set token to re-trigger effects if needed, though not strictly necessary here
+    setToken(jwtToken);
 
     try {
       const userInfo = await getUserInfo();
       setUser(userInfo);
+      await triggerSync(); // Sync immediately after a successful login
     } catch (error) {
       console.error("Failed to fetch user info after login:", error);
-      logout(); // Clean up on failure
+      logout();
       throw error;
     }
   };
