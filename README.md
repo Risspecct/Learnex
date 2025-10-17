@@ -57,6 +57,12 @@ Education should never be limited by geography or language. Learnex bridges that
   <i>Gamified modules and AI-powered educational tools</i>
 </p>
 
+<p align="center">
+<img width="96%" alt="Teacher Dashboard" src="https://github.com/user-attachments/assets/020a79a8-44d4-4c48-bc4e-227260d455ad">
+<br>
+<i>The Teacher Dashboard provides clear, subject-wise analytics.</i>
+</p>
+
 ---
 
 ## 🛠️ Tech Stack
