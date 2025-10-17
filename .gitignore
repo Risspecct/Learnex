@@ -39,5 +39,9 @@ application.properties
 new/
 part1.html
 
-/backend/Python/__pycache__/
-/backend/Python/features/__pycache__/
+### Python Cache ###
+__pycache__/
+*.pyc
+
+### Google Cloud ###
+key_file.json
