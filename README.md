@@ -4,7 +4,7 @@
   <img src="https://github.com/Risspecct/Learnex/blob/dev/frontend/public/learnex-logo.svg" alt="Learnex Logo" width="120" height="120">
 </div>
 
-<h1 align="center">💡 Learnex: Bridging India's Educational Divide</h1>
+<h1 align="center">Learnex: Bridging India's Educational Divide</h1>
 
 <div align="center">
   <b>A gamified, AI-powered learning platform designed to make STEM education accessible, engaging, and inclusive for students across India.</b>
