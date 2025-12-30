@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  python:
+    build:
+      context: ./Python
+    container_name: learnex-python
+    ports:
+      - "10000:10000"
+    env_file:
+      - ./Python/.env
+    restart: unless-stopped
+
+  springboot:
+    build:
+      context: ./Spring Boot
+    container_name: learnex-springboot
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./Spring Boot/.env
+    environment:
+      # INTERNAL Docker-to-Docker communication
+      PYTHON_BASE_URL: http://python:10000
+    depends_on:
+      - python
+    restart: unless-stopped
