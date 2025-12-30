@@ -40,13 +40,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             @NonNull HttpServletResponse response,
             @NonNull FilterChain filterChain) throws ServletException, IOException {
 
-        // START: This is the crucial block to bypass the filter
         final String requestURI = request.getRequestURI();
         if (requestURI.equals("/login") || requestURI.equals("/register")) {
             filterChain.doFilter(request, response);
             return;
         }
-        // END: Bypass block
 
         log.info("Checking for JWT token in the request for URI: {}", requestURI);
         final String authHeader = request.getHeader("Authorization");
@@ -84,6 +82,17 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
+    @Override
+protected boolean shouldNotFilter(HttpServletRequest request) {
+    String path = request.getServletPath();
+
+    return path.equals("/login")
+            || path.equals("/register")
+            || path.equals("/docs")
+            || path.startsWith("/swagger-ui")
+            || path.startsWith("/v3/api-docs");
+}
+
     private void errorResponse(HttpServletRequest request, HttpServletResponse response, Exception ex, String desc) throws IOException {
         log.info("Error raised in JWT Filer");
         response.setContentType("application/json");
@@ -97,5 +106,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
         response.getWriter().write(objectMapper.writeValueAsString(errorResponse));
         response.getWriter().flush();
+
     }
 }
