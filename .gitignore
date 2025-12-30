@@ -34,7 +34,6 @@ build/
 venv
 
 .env
-application.properties
 
 new/
 part1.html
