@@ -1,4 +1,4 @@
-import { getAllScores, clearAllScores } from './phaser/offlineDb';
+import { getAllScores, clearAllScores } from './phaser/offlineDB';
 import { syncScores } from './apiService';
 
 export const triggerSync = async () => {
