@@ -1,6 +1,3 @@
-// offlineDb.js - Utility functions for saving and loading game data to IndexedDB
-
-// Function to open the database
 export function openDatabase() {
     return new Promise((resolve, reject) => {
         const request = indexedDB.open("PhysicsGameDB", 1);

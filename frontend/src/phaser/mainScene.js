@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { saveGameScore } from './offlineDb.js';
+import { saveGameScore } from './offlineDB.js';
 
   // --- Constants ---
     const GAME_WIDTH = 1280;
